@@ -8,7 +8,7 @@
 </div>
 
 <div class="pagination">
-    <a href="#">Accueil</a>
+    <a href="/">Accueil</a>
 </div>
 
 <slot />

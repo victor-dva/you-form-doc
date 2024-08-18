@@ -8,3 +8,9 @@
 
     <a href="/applicationweb"><button> Appllication Web</button></a>
 </div>
+
+<style>
+    div {
+        margin-left: 1%;
+    }
+</style>
