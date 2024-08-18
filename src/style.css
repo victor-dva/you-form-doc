@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+}
+
+:root {
+    /** Colors */
+    --dark-indigo : #1a237e;
+    --normal-indigo : #3f51b5;
+    --light-indigo : #7986cb;
+    --very-light-indigo : #c5cae9;
+
+    /** Font family */
+    --arial : 'Arial, sans-serif'
+}
+
+/** Navbar */
+.navbar {
+    background-color: var(--dark-indigo);
+    height: 40pt;
+    align-content: center;
+}
+
+.navbar > span {
+    margin-left: 1%;
+    margin-right: 5%;
+    color: #ffffff;
+    font-size: 22pt;
+}
+
+.navbar > a {
+    color: #ffffff;
+    font-size: 16pt;
+}
+
+/** Pagination */
+.pagination {
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.pagination a {
+    margin-top: 1%;
+    color: var(--light-indigo);
+}
