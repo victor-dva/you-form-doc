@@ -21,3 +21,5 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 Documentation/~$User_story.xlsx
+
+package-lock.json

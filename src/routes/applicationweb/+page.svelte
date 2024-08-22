@@ -1,11 +1,11 @@
 <script lang="ts">
-	import ProjectCard from "$lib/components/ProjectCard.svelte";
     import type { Project } from "$lib/models/applicationWeb";
 	import { addProject, getProjects } from "$lib/services/applicationWeb/projectService";
 	import { onMount } from "svelte";
+	import { goto } from '$app/navigation';
 
     /** Store projects */
-    let projects: Project[] | [] = []
+    let projects: Project[] = []
     
     /** Fetch projects */
     onMount(async () => {
@@ -37,7 +37,24 @@
         closeDialog()
         newProject = { title: '', isFinished: false };
         createButton.disabled = false
-    };
+    }
+
+    /** Method called to share Project data */
+    const goToProject = async (project: Project) => {
+        const response = await fetch(`/applicationweb/${project.title}/data`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(project)
+        })
+
+        if (response.ok) {
+            goto(`applicationweb/${project.title}`)
+        } else {
+            console.error('Erreur : données non envoyées')
+        }
+    }
 </script>
 
 <fieldset>
@@ -46,7 +63,11 @@
     <!-- Displays created projects -->
     <ul>
         {#each projects as project}
-            <ProjectCard title={project.title}/>
+            <!-- svelte-ignore a11y-interactive-supports-focus -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <div class="projectButton" role="button" on:click|preventDefault={() => project && goToProject(project)}>
+                <h2>{project.title}</h2>
+            </div>
         {:else}
             <p>Aucun projet</p>
         {/each}
@@ -63,7 +84,7 @@
 </dialog>
 
 <style>
-    /** Fieldset style */
+    /** fieldset style */
     fieldset {
         margin-left: 1%;
         margin-right: 1%;
@@ -75,11 +96,28 @@
         color: #fff;
         padding: 3px 6px;
     }
-    /** createProject button style*/
+
+    /** .projectButton cards style */
+    .projectButton {
+        float: left;
+        margin: 2% 1% 2% 1%;
+        padding: 5px 0px 5px 0px;
+        width: 200px;
+        height: 100px;
+        background-color: #1a237e;
+        color: white;
+        cursor: pointer;
+    }
+    .projectButton h2 {
+        text-align: center;
+    }
+
+    /** #createProject style*/
     #createProject {
         float: right;
     }
-    /** Project creation form*/
+
+    /** dialog style*/
     dialog {
         text-align: center;
     }
