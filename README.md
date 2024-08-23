@@ -1,38 +1,54 @@
-# create-svelte
+# YouFormDoc
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Bienvenu dans le projet YouFormDoc. Cet outil consiste à créer dynamiquement de la documentation selon un type de projet. Exemple : Application web, jeux vidéos, immobilier. Grâce l'automatisation des docuements via formulaires, vous êtes assurés d'obtenir un bon suivi de vos documents et de l'état d'avancement de vos projets.
 
-## Creating a project
+L'application est développée en SvelteKit avec le langage TypeScript. Elle nécessite d'être connectée à une base de données Firebase pour fonctionner.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Pré-requis
 
+La librairie NodeJs est obligatoire pour exécuter le projet web. Vous devrez aussi créer une base de données Firebase (n'oubliez pas de garder de côté les informations de connexion)
+
+## Lancer l'application
+
+Pour lancer notre application, il est important de suivre les étapes suivantes : 
+
+- cloner le projet
+- aller dans le répertoire crée "you-form-doc"
+- Ouvrir un terminal puis lancer la commande :
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm install
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+- Lancer la commande :
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
+- Après exécution de cette commande une page web avec l'url de type http://localhost:8080 s'ouvrira
 
-## Building
-
-To create a production version of your app:
-
+Ensuite pour utiliser l'application, il va falloir maintenant connecter le projet à votre base de données Firebase. Toujours dans le même répertoire "you-form-doc", créer un fichier .env qui se présentera ainsi :
 ```bash
-npm run build
+VITE_API_KEY=[YOUR_API_KEY]
+VITE_AUTH_DOMAIN=[YOUR_AUTH_DOMAIN]
+VITE_PROJECT_ID=[YOUR_PROJECT_ID]
+VITE_STORAGE_BUCKET=[YOUR_STORAGE_BUCKET]
+VITE_MESSAGING_SENDER_ID=[YOUR_MESSAGING_SENDER_ID]
+VITE_APP_ID=1:706736865407:[YOUR_APP_ID]
 ```
+en remplaçant bien évidemment les variables entre crochets par vos informations.
 
-You can preview the production build with `npm run preview`.
+## Manuel utilisateur
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+L'application est opérationnelle, donc prête à votre disposition. Voyons maintenant comment se présente notre site :
+
+  - Accueil : cette page est le point d'entrée de YouFormDoc. C'est ici que vous choisirez le type de projet pour lequel vous voudriez construire votre documentation. Seul le projet de type "Appication web" est disponible
+  - Application Web : dans cette page vous retrouverez pour chaque projet web sa documentation qui se présente sous forme d'un bouton. lorsque vous cliquez sur projet, vous êtes redirigé vers sa page.
+  - Application Web - [projet] : une fois arrivé dans cette page, vous avez la possibilité d'accéder maintenant aux pages des catégories suivantes :
+      - exigence
+      - user story
+      - test
+    lorsqu'une des catégories est cliquée, vous êtes redirigé vers sa page
+
+Pour le moment, il n'est possible de :
+
+  - créer un projet de documentation
+  - supprimer un projet de documentation
+  - renommer le titre d'un projet de documentation
