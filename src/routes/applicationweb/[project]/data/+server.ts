@@ -7,6 +7,7 @@ export const POST: RequestHandler = async ({ request }) => {
     const data = await request.json();
 
     project = {
+        id: data.id,
         title: data.title,
         isFinished: data.isFinished
     };

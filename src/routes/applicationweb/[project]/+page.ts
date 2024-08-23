@@ -5,7 +5,7 @@ export const load: PageLoad = async({ fetch, params }) => {
     const response = await fetch(`/applicationweb/${project}/data`);
 
     if(!response.ok) {
-        return { error: 'Erreur lors de la récupération des données' };
+        return { error: 'Erreur lors de la récupération des données', status: 404 };
     }
 
     const projectData = await response.json();

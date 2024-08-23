@@ -12,9 +12,8 @@
         projects = await getProjects()
     })
 
-    /** Create a project */
+    /** Dialog */
     let dialog: HTMLDialogElement
-    
     /** Method called to open project's creation form*/
     const openDialog = () => {
         if (dialog) {
@@ -39,7 +38,7 @@
         createButton.disabled = false
     }
 
-    /** Method called to share Project data */
+    /** Method called to navigate into project page + pass data */
     const goToProject = async (project: Project) => {
         const response = await fetch(`/applicationweb/${project.title}/data`, {
             method: 'POST',
@@ -60,7 +59,7 @@
 <fieldset>
     <legend>Projets</legend>
     <button id="createProject" on:click={() => openDialog()}>Créer un projet</button>
-    <!-- Displays created projects -->
+    <!-- Display projects -->
     <ul>
         {#each projects as project}
             <!-- svelte-ignore a11y-interactive-supports-focus -->
@@ -97,7 +96,7 @@
         padding: 3px 6px;
     }
 
-    /** .projectButton cards style */
+    /** .projectButton style */
     .projectButton {
         float: left;
         margin: 2% 1% 2% 1%;
