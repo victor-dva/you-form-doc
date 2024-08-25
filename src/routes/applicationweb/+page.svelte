@@ -3,12 +3,14 @@
 	import { addProject, getProjects, updateProject } from "$lib/services/applicationWeb/projectService";
 	import { onMount } from "svelte";
 	import { goto } from '$app/navigation';
+	import { ApplicationLogger } from "$lib/logs/Logger";
 
     /** Store projects */
     let projects: Project[] = []
     
     /** Fetch projects */
     onMount(async () => {
+        ApplicationLogger.INFO('Récupération des projets')
         projects = await getProjects()
     })
 
@@ -36,6 +38,7 @@
     const createProject = async () => {
         createButton.disabled = true
         await addProject(newProject);
+        ApplicationLogger.INFO(`Création du projet "${newProject.title}"`)
         projects = await getProjects();
         closeDialog(createDialog)
         newProject = { title: '', isFinished: false };
@@ -49,6 +52,7 @@
     const renameProject = async () => {
         updateButton.disabled = true
         await updateProject(currentProject.id!, currentProject);
+        ApplicationLogger.INFO(`Renommage du projet en "${currentProject.title}"`)
         projects = await getProjects();
         closeDialog(updateDialog)
         currentProject = { title: '', isFinished: false };

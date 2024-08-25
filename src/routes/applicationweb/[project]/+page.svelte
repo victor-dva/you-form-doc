@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
+	import { ApplicationLogger } from "$lib/logs/Logger";
 	import type { Project } from "$lib/models/applicationWeb";
 	import { deleteProject } from "$lib/services/applicationWeb/projectService";
 
      export let data: Project;
-
-     
 
      /** Dialog */
      let dialog: HTMLDialogElement
@@ -23,12 +22,13 @@
     /** Method called to delete project and redirect to projects page */
     const removeProject = async(id: string) => {
           await deleteProject(id);
+          ApplicationLogger.INFO(`Suppression du projet "${data.title}"`)
           goto(`/applicationweb`);
      }
 
-     const goToExigence = (category: string) => {
+    const goToExigence = (category: string) => {
           goto(`${data.title}/${category}`)
-     }
+    }
 </script>
 
 {#if data}

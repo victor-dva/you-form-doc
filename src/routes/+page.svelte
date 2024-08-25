@@ -1,4 +1,4 @@
-<div class="welcome-text">
+<div>
     <p>
         Bienvenue dans YouFormDoc ! Laissez nous vous accompagner dans vos projets avec notre système ludique de documentation. 
         Veuillez choisir le type de projets dans lequel vous souhaitez vous lancez.
