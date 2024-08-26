@@ -6,8 +6,8 @@ L'application est développée en SvelteKit avec le langage TypeScript. Elle né
 
 ## Pré-requis
 
-Node Js : version >= 18
-Base de données Firebase : https://www.youtube.com/watch?v=G3DRgWzlAjg&list=PLm_Qt4aKpfKiGbdjaHdOpry6Neza0etxZ&index=5 (regarder jusqu'à 01:05)
+-  Node Js : version >= 18
+-  Base de données Firebase : https://www.youtube.com/watch?v=G3DRgWzlAjg&list=PLm_Qt4aKpfKiGbdjaHdOpry6Neza0etxZ&index=5 (regarder jusqu'à 01:05)
 
 ## Lancer l'application
 
