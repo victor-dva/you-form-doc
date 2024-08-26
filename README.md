@@ -6,7 +6,8 @@ L'application est développée en SvelteKit avec le langage TypeScript. Elle né
 
 ## Pré-requis
 
-La librairie NodeJs est obligatoire pour exécuter le projet web. Vous devrez aussi créer une base de données Firebase (n'oubliez pas de garder de côté les informations de connexion)
+Node Js : version >= 18
+Base de données Firebase : https://www.youtube.com/watch?v=G3DRgWzlAjg&list=PLm_Qt4aKpfKiGbdjaHdOpry6Neza0etxZ&index=5 (regarder jusqu'à 01:05)
 
 ## Lancer l'application
 
@@ -22,7 +23,7 @@ npm install
 ```bash
 npm run dev -- --open
 ```
-- Après exécution de cette commande une page web avec l'url de type ```bash http://localhost:8080``` s'ouvrira
+- Après exécution de cette commande une page web avec l'url de type ```http://localhost:8080``` s'ouvrira
 
 Ensuite pour utiliser l'application, il va falloir maintenant connecter le projet à votre base de données Firebase. Toujours dans le même répertoire "you-form-doc", créer un fichier .env qui se présentera ainsi :
 ```bash
