@@ -23,11 +23,9 @@ export const updateProject = async (id: string, updatedProject: Omit<Project, 'i
     DatabaseLogger.INFO(`Mise à jour du projet ${id}`, updatedProject)
 };
 
-export const deleteProject = async (id: string) => {
+export const deleteProject = async (id: string, deletedProject: Omit<Project, 'id'>) => {
     const projectDoc = doc(db, 'projects', id);
     await deleteDoc(projectDoc)
-    const projectsSnapshot = await getDocs(projectsCollection);
-    const projectsList = projectsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Project));
-    DatabaseLogger.INFO(`Suppression du projet ${id}`, projectsList)
+    DatabaseLogger.INFO(`Suppression du projet ${id}`, deletedProject)
 };
 

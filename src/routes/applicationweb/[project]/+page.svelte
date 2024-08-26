@@ -21,8 +21,7 @@
 
     /** Method called to delete project and redirect to projects page */
     const removeProject = async(id: string) => {
-          await deleteProject(id);
-          ApplicationLogger.INFO(`Suppression du projet "${data.title}"`)
+          await deleteProject(id, data);
           goto(`/applicationweb`);
      }
 
