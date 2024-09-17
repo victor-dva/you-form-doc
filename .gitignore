@@ -23,3 +23,13 @@ vite.config.ts.timestamp-*
 Documentation/~$User_story.xlsx
 
 package-lock.json
+
+prisma/dev.db
+
+prisma/migrations/20240916195817_init/migration.sql
+
+prisma/migrations/20240917010148_init/migration.sql
+
+prisma/migrations/20240917162217_init/migration.sql
+
+prisma/migrations/migration_lock.toml

@@ -1,5 +1,10 @@
 <fieldset>
     <legend>Exigences</legend>
+    <button id="createRequirement">Créer une exigence</button>
+    <!-- Display projects -->
+    <ul>
+        <p>Aucune exigence</p>
+    </ul>
 </fieldset>
 
 <style>
@@ -14,5 +19,9 @@
         background-color: #1a237e;
         color: #fff;
         padding: 3px 6px;
+    }
+    /** #createRequirement style */
+    #createRequirement {
+        float: right;
     }
 </style>
