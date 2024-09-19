@@ -33,3 +33,7 @@ prisma/migrations/20240917010148_init/migration.sql
 prisma/migrations/20240917162217_init/migration.sql
 
 prisma/migrations/migration_lock.toml
+
+prisma/dev.db-journal
+
+prisma/migrations/20240919002712_init/migration.sql

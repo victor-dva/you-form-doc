@@ -18,3 +18,18 @@ model Project {
   title         String @unique
   isFinished    Boolean @default(false)
 }
+
+model RequirementGroup {
+  id            String @id @default(uuid())
+  type          String
+  title         String
+  requirements  Requirement[]
+}
+
+model Requirement {
+  id            String @id @default(uuid())
+  groupId       String
+  title         String
+  isFulfilled   Boolean
+  group         RequirementGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+}

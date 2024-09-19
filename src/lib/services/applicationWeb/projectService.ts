@@ -9,8 +9,7 @@ export const addProject = async (project: Project) => {
 };
 
 export const getProjects = async () => {
-    return await prisma.project.findMany({
-    });
+    return await prisma.project.findMany();
 };
 
 export const updateProject = async (id: number, updatedproject: Omit<Project, 'id'>) => {
