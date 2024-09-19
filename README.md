@@ -2,12 +2,11 @@
 
 Bienvenu dans le projet YouFormDoc. Cet outil consiste à créer dynamiquement de la documentation selon un type de projet. Exemple : Application web, jeux vidéos, immobilier. Grâce à l'automatisation des documents via formulaires, vous êtes assurés d'obtenir un bon suivi de vos documents et de l'état d'avancement de vos projets.
 
-L'application est développée en SvelteKit avec le langage TypeScript. Elle nécessite d'être connectée à une base de données Firebase pour fonctionner.
+L'application est développée en SvelteKit avec le langage TypeScript et utilise Prisma pour réaliser les méthodes CRUD et alimenter une base de données Sqlite 3 en local. 
 
 ## Pré-requis
 
 -  Node Js : version >= 18
--  Base de données Firebase : https://www.youtube.com/watch?v=G3DRgWzlAjg&list=PLm_Qt4aKpfKiGbdjaHdOpry6Neza0etxZ&index=5 (regarder jusqu'à 01:05)
 
 ## Lancer l'application
 
@@ -19,23 +18,14 @@ Pour lancer notre application, il est important de suivre les étapes suivantes 
 ```bash
 npm install
 ```
-- Lancer la commande :
+- Faire la migration des tables de données avec la commande :
+```bash
+npx prisma migrate dev --name init
+```
+- Enfin, tester l'application web en lançant la commande suivante :
 ```bash
 npm run dev -- --open
 ```
-- Après exécution de cette commande une page web avec l'url de type ```http://localhost:8080``` s'ouvrira
-
-Ensuite pour utiliser l'application, il va falloir maintenant connecter le projet à votre base de données Firebase. Toujours dans le même répertoire "you-form-doc", créer un fichier .env qui se présentera ainsi :
-```bash
-VITE_API_KEY=[YOUR_API_KEY]
-VITE_AUTH_DOMAIN=[YOUR_AUTH_DOMAIN]
-VITE_PROJECT_ID=[YOUR_PROJECT_ID]
-VITE_STORAGE_BUCKET=[YOUR_STORAGE_BUCKET]
-VITE_MESSAGING_SENDER_ID=[YOUR_MESSAGING_SENDER_ID]
-VITE_APP_ID=[YOUR_APP_ID]
-```
-en remplaçant bien évidemment les variables entre crochets par vos informations.
-
 ## Manuel utilisateur
 
 L'application est opérationnelle, donc prête à votre disposition. Voyons maintenant comment se présente notre site :
